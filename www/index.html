@@ -1,0 +1,126 @@
+<http>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--script src="sprites.js"></script-->
+<script src="animation.js"></script>
+<script src="canvas.js"></script>
+<script src="peeps.js"></script>
+<script>
+
+
+/*
+function test() {
+	var canvas = document.getElementById("PeepCanvas");
+	console.log(canvas);
+	var ctx = canvas.getContext("2d");
+	console.log(ctx);
+	ctx.fillStyle = "#ff0000";
+	ctx.fillRect(10, 10, 80, 80);
+}
+$(document).ready(function() {
+	test();
+});
+*/
+/*
+var actions = [
+	{name:"idle",sprites:[[0,64,15,79],[16,64,31,79],[32,64,47,79],[48,64,63,79]]},
+	{name:"sout",sprites:[[0,48,15,63],[16,48,31,63],[32,48,47,63],[48,48,63,63]]},
+	{name:"east",sprites:[[0, 0,15,15],[16, 0,31,15],[32, 0,47,15],[48, 0,63,15]]},
+	{name:"nort",sprites:[[0,32,15,47],[16,32,31,47],[32,32,47,47],[48,32,63,47]]},
+	{name:"west",sprites:[[0,16,15,31],[16,16,31,31],[32,16,47,31],[48,16,63,31]]},
+];
+
+var frame = 0;
+var step = 0;
+var move = 0;
+var loop = 0;
+var pos = [0, 0];
+function render() {
+	frame = (frame + 1) % 20;
+	if (frame != 0) return;
+
+//	step = (step + 1) % 4;
+//	if (step == 0)
+//	loop = (loop + 1) % 5;
+//	if (loop == 0)
+//	move = (move + 1) % 5;
+
+	loop = (loop + 1) % 4;
+	if (loop == 0)
+	move = (move + 1) % actions.length;
+
+
+//		pos[0] += 1;
+
+	var action;
+	var sprite;
+//	for (var a in actions) {
+		action = actions[move];
+
+		step = (step + 1) % action.sprites.length;
+
+//		for (var s in action.sprites) {
+			sprite = action.sprites[step];
+//		}
+//	}
+	console.log("Render:"+ action.name);
+
+	var info = document.getElementById("PeepInfo");
+	info.html = action.name;
+
+	var canvas = document.getElementById("PeepCanvas");
+	var ctx = canvas.getContext("2d");
+
+	ctx.imageSmoothingEnabled = false;
+	var img = document.getElementById("PeepImage");
+	ctx.drawImage(img, sprite[0], sprite[1], 16, 16, pos[0], pos[1], 80, 80);
+//	ctx.drawImage(img, 16*step, 16*move, 16, 16, 10, 10, 80, 80);
+}
+
+
+(function() {
+	console.log("Test");
+})();
+
+$(document).ready(function() {
+return;
+
+	var PeepCanvas = new Canvas("PeepCanvas").set_size(320, 320);
+	var PeepSprite1 = makeSprite("PeepImage", 16, 16, 16, 16);
+	var PeepSprite2 = makeSprite("PeepImage", 16, 16, 16, 16);
+
+	var PeepSprites = SpriteSeries("PeepImage",
+		[16, 16, 16, 16],
+		[32, 16, 16, 16]);
+	for (let Sprite of PeepSprites) {
+		PeepCanvas.draw_sprite(Sprite, Sprite.s*2, Sprite.t);
+	}
+
+//	PeepCanvas.draw_sprite(PeepSprite1, 16, 16);
+//	PeepCanvas.draw_sprite(PeepSprite2, 64, 16);
+});
+*/
+
+</script>
+<style>
+
+canvas#PeepCanvas {
+	border: 1px solid black;
+	width_: 640px;
+	height_: 480px;
+}
+
+#PeepImage {
+	display: none;
+}
+
+</style>
+</head>
+<body>
+
+<div id="PeepInfo"></div>
+<img src="peeps.png" id="PeepImage"></img>
+<canvas id="PeepCanvas"></canvas>
+
+</body>
+</http>
